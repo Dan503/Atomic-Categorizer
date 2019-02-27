@@ -6,11 +6,7 @@
 
 <script>
 export default {
-  props: {
-    name: String,
-    value: Number,
-    selected: Boolean,
-  }
+  props: ['name', 'value', 'selected']
 };
 </script>
 

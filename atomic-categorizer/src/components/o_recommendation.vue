@@ -14,11 +14,7 @@ export default {
   components: {
     m_score
   },
-  props: {
-    atom: Number,
-    molecule: Number,
-    organism: Number
-  }
+  props: ['atom', 'molecule', 'organism']
 };
 </script>
 
