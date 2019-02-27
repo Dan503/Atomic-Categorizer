@@ -3,19 +3,19 @@
     header
       h1 Atomic Categorizer
     main
-      HelloWorld(msg="Welcome to Your Vue.js App")
+      o_quiz
     footer
       o_recommendation(atom="1", molecule="2", organism="3")
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import o_quiz from "./components/o_quiz";
 import o_recommendation from "./components/o_recommendation.vue";
 
 export default {
   name: "app",
   components: {
-    HelloWorld,
+    o_quiz,
     o_recommendation
   }
 };
