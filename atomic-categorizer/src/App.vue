@@ -3,9 +3,9 @@
     header
       h1 Atomic Categorizer
     main
-      o_quiz
+      o_quiz(:score="score")
     footer
-      o_recommendation(atom="1", molecule="2", organism="3")
+      o_recommendation(:score="score")
 </template>
 
 <script>
@@ -14,6 +14,13 @@ import o_recommendation from "./components/o_recommendation.vue";
 
 export default {
   name: "app",
+  data: ()=> ({
+    score: {
+      a: 0,
+      m: 0,
+      o: 0,
+    }
+  }),
   components: {
     o_quiz,
     o_recommendation

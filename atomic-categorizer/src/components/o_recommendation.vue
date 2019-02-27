@@ -2,9 +2,9 @@
   article.o-recommendation
     h2.o-recommendation__title Current recommendation
     dl.o-recommendation__list
-      m_score(name="Atom", :value="atom", selected=true)
-      m_score(name="Molecule", :value="molecule", selected=false)
-      m_score(name="Organism", :value="organism", selected=false)
+      m_score(name="Atom", :value="score.a", selected=true)
+      m_score(name="Molecule", :value="score.m", selected=false)
+      m_score(name="Organism", :value="score.o", selected=false)
 </template>
 
 <script>
@@ -14,7 +14,7 @@ export default {
   components: {
     m_score
   },
-  props: ['atom', 'molecule', 'organism']
+  props: ['score']
 };
 </script>
 

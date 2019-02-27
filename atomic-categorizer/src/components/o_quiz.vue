@@ -4,7 +4,7 @@
       h2.o-quiz__heading Atomic quiz
       p Answer the following quiz to figure out what Atomic Design category a particular component should be categorized into.
     ol.o-quiz__list
-      m_question(v-for="question in questions" :question="question" :key="question.q")
+      m_question(v-for="question in questions" :question="question" :key="question.q" :score="score")
 </template>
 
 <script>
@@ -14,6 +14,7 @@ import m_question from './m_question.vue';
 export default {
   data: ()=> ({questions}),
   components: { m_question },
+  props: ['score']
 };
 </script>
 
