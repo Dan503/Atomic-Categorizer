@@ -3,8 +3,9 @@
     header.o-quiz__head
       h2.o-quiz__heading Atomic quiz
       p Answer the following quiz to figure out what Atomic Design category a particular component should be categorized into.
-    ol.o-quiz__list
-      m_question(v-for="question in questions" :question="question" :key="question.q" :score="score")
+    form
+      ol.o-quiz__list
+        m_question(v-for="(question, index) in questions" :index="index" :question="question" :key="question.q" :score="score")
 </template>
 
 <script>
