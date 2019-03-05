@@ -2,39 +2,18 @@
   article.o-recommendation
     h2.o-recommendation__title Current recommendation
     dl.o-recommendation__list
-      m_score(name="Atom", :value="finalScore.a", selected=true)
-      m_score(name="Molecule", :value="finalScore.m", selected=false)
-      m_score(name="Organism", :value="finalScore.o", selected=false)
+      m_score(name="Atom", :value="scores.a", selected=true)
+      m_score(name="Molecule", :value="scores.m", selected=false)
+      m_score(name="Organism", :value="scores.o", selected=false)
 </template>
 
 <script>
 import m_score from "./m_score.vue";
 
 export default {
-  components: {
-    m_score
-  },
-  props: ['score'],
-  computed: {
-    finalScore() {
-      const scores = this.$root.scores;
-      const mergedScores = mergeScores(scores);
-      return mergedScores;
-    }
-  }
+  components: { m_score },
+  props: ['scores'],
 };
-
-function mergeScores (scores) {
-  let finalScores = {};
-  for (const key in scores) {
-    if (scores.hasOwnProperty(key)) {
-      const categoryScores = scores[key];
-      const combinedScore = categoryScores.reduce((score, sum) => sum + score, 0);
-      finalScores[key] = combinedScore;
-    }
-  }
-  return finalScores;
-}
 
 </script>
 

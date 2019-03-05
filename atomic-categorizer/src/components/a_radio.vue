@@ -1,6 +1,6 @@
 <template lang="pug">
   label.a-radio
-    input.a-radio__input(type='radio', :value="label", v-model="chosenValue", :name="name")
+    input.a-radio__input(type='radio', :value="label", @change="update" v-model="chosenValue", :name="name")
     span.a-radio__label {{label}}
 </template>
 
@@ -12,7 +12,10 @@ export default {
     }
   },
   props: ['name', 'label', 'points', 'index'],
-  computed: {
+  methods: {
+    update() {
+      this.$emit('update', this.selectionData());
+    },
     selectionData() {
       return {
         points: this.points,
@@ -22,11 +25,6 @@ export default {
       }
     }
   },
-  watch: {
-    chosenValue (label) {
-      this.$emit('update', this.selectionData)
-    }
-  }
 };
 </script>
 
