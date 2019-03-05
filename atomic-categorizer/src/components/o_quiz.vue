@@ -5,7 +5,7 @@
       p Answer the following quiz to figure out what Atomic Design category a particular component should be categorized into.
     form
       ol.o-quiz__list
-        m_question(v-for="(question, index) in questions" :index="index" :question="question" :key="question.q" :score="score")
+        m_question(v-for="(question, index) in questions" :index="index" :question="question" :key="question.q" @update="updateScores")
 </template>
 
 <script>
@@ -15,7 +15,12 @@ import m_question from './m_question.vue';
 export default {
   data: ()=> ({questions}),
   components: { m_question },
-  props: ['score']
+  props: ['scores'],
+  methods: {
+    updateScores (scoreData) {
+      this.$emit('update', scoreData)
+    }
+  },
 };
 </script>
 

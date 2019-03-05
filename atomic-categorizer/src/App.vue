@@ -3,9 +3,9 @@
     header
       h1 Atomic Categorizer
     main
-      o_quiz(:score="score")
+      o_quiz(@update="updateScores")
     footer
-      o_recommendation(:score="score")
+      o_recommendation(:scores="scores")
 </template>
 
 <script>
@@ -14,17 +14,17 @@ import o_recommendation from "./components/o_recommendation.vue";
 
 export default {
   name: "app",
-  data: ()=> ({
-    score: {
-      a: 0,
-      m: 0,
-      o: 0,
-    }
-  }),
   components: {
     o_quiz,
     o_recommendation
-  }
+  },
+  props: ['scores'],
+  methods: {
+    updateScores (scoreData) {
+      console.log(scoreData);
+      this.$emit('update', scoreData)
+    }
+  },
 };
 </script>
 

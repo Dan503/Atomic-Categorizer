@@ -7,5 +7,12 @@ Vue.config.productionTip = false;
 new Vue({
   render: function(h) {
     return h(App);
+  },
+  data: {
+    scores: {
+      a: [],
+      m: [],
+      o: [],
+    }
   }
 }).$mount("#app");
