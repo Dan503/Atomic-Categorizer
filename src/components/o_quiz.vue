@@ -2,7 +2,7 @@
   article.o-quiz
     header.o-quiz__head
       h2.o-quiz__heading.-visuallyHidden Atomic quiz
-      p.o-quiz__intro Answer the following quiz to figure out what Atomic Design category a particular component should be categorized into.
+      p.o-quiz__intro Answer the following quiz to figure out what <a href="http://bradfrost.com/blog/post/atomic-web-design/">Atomic Design</a> category a particular component should be categorized into.
     form
       ol.o-quiz__list
         li.o-quiz__item(v-for="(question, index) in questions")

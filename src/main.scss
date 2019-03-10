@@ -45,6 +45,19 @@ body {
   background: var(--background-color);
 }
 
+a {
+  transition: 0.15s;
+  text-decoration: none;
+  color: #100;
+  border-bottom: 1px solid #be6700;
+  outline: 1rem solid rgba(205, 202, 162, 0);
+}
+a:hover, a:focus {
+  background: rgba(205, 202, 162, 0.16);
+  outline: 3px solid rgba(205, 202, 162, 0.16);
+  border-width: 3px;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-secondary);
   color: var(--heading-color);
