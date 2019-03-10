@@ -1,4 +1,25 @@
 
+@import url('https://fonts.googleapis.com/css?family=Muli:400,700|Oswald:500');
+
+:root {
+  // Colors (main)
+  --yellow-pale: #F6F5DE;
+  --yellow-dim: #726f41;
+  --orange-strong: #be6d22;
+  --blue-light: #6CF;
+  --black: #100;
+
+  // Colors (functional)
+  --background-color: var(--yellow-pale);
+  --text-color: var(--black);
+  --dim-text-color: var(--yellow-dim);
+  --heading-color: var(--black);
+
+  // Fonts
+  --font-primary: "proxima-nova", "Muli", "Helvetica", "Arial", sans-serif;
+  --font-secondary: "Oswald", "Impact", sans-serif;
+}
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -15,11 +36,21 @@ body {
   display: flex;
   margin: 0;
 
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: var(--font-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
+  background: var(--background-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary);
+  color: var(--heading-color);
+  letter-spacing: 1px;
+  text-transform: lowercase;
+  font-weight: 800;
 }
 
 .-visuallyHidden {

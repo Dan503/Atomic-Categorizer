@@ -71,12 +71,22 @@ function merge_scores (scores) {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
 
+  &__main, &__footer {
+    margin: 0 20px;
+  }
+
   &__footer {
-    position: sticky;
     bottom: 0;
+    width: 100%;
+    max-width: 100rem;
+    margin: 0 auto;
+
+    @media (min-height: 500px) {
+      position: sticky;
+    }
   }
 }
 </style>
