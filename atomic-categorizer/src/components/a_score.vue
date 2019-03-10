@@ -1,7 +1,7 @@
 <template lang="pug">
-  .m-score(:class="{'-selected':selected}")
-    dt.m-score__name(:aria-current="selected") {{ name }}
-    dd.m-score__value {{ value }}
+  .a-score(:class="{'-selected':selected}")
+    dt.a-score__name(:aria-current="selected") {{ name }}
+    dd.a-score__value {{ value }}
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-.m-score {
+.a-score {
   &__name {
     font-weight: bold;
   }

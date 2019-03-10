@@ -2,16 +2,16 @@
   article.o-recommendation
     h2.o-recommendation__title Current recommendation
     dl.o-recommendation__list
-      m_score(name="Atom", :value="scores.a", selected=true)
-      m_score(name="Molecule", :value="scores.m", selected=false)
-      m_score(name="Organism", :value="scores.o", selected=false)
+      a_score(name="Atom", :value="scores.a", selected=true)
+      a_score(name="Molecule", :value="scores.m", selected=false)
+      a_score(name="Organism", :value="scores.o", selected=false)
 </template>
 
 <script>
-import m_score from "./m_score.vue";
+import a_score from "./a_score.vue";
 
 export default {
-  components: { m_score },
+  components: { a_score },
   props: ['scores'],
 };
 
