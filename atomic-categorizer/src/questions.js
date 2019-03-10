@@ -134,5 +134,37 @@ export default [
 				a: 1,
 			}
 		}
+	},
+
+	{
+		q: 'Are there any atom components embedded into the component?',
+		a: {
+			yes: {
+				o: 2,
+				m: 3,
+				a: 0
+			},
+			no: {
+				o: 0,
+				m: 0,
+				a: 0,
+			}
+		}
+	},
+
+	{
+		q: 'Are there any molecule components embedded into the component?',
+		a: {
+			yes: {
+				o: 5,
+				m: 0,
+				a: 0
+			},
+			no: {
+				o: 0,
+				m: 0,
+				a: 0,
+			}
+		}
 	}
 ]
