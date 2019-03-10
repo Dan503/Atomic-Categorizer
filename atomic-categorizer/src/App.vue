@@ -1,10 +1,10 @@
 <template lang="pug">
-  div#app
-    header
-      h1 Atomic Categorizer
-    main
+  .o-app#app
+    header.o-app__header
+      h1.o-app__title Atomic Categorizer
+    main.o-app__main
       o_quiz(@update="updateScores")
-    footer
+    footer.o-app__footer
       o_recommendation(:scores="finalScores")
 </template>
 
@@ -67,11 +67,16 @@ function merge_scores (scores) {
 <style lang="scss" src="./main.scss"></style>
 
 <style lang="scss">
-#app {
+.o-app {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
+  &__footer {
+    position: sticky;
+    bottom: 0;
+  }
 }
 </style>
