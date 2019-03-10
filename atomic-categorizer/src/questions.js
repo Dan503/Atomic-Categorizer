@@ -155,8 +155,8 @@ export default [
 				a: 0
 			},
 			no: {
-				o: 0,
-				m: 0,
+				o: 4,
+				m: 1,
 				a: 0,
 			},
 			"not sure": {
@@ -177,8 +177,8 @@ export default [
 			},
 			no: {
 				o: 0,
-				m: 0,
-				a: 0,
+				m: 2,
+				a: 3,
 			},
 			"not sure": {
 				o: 0,
@@ -189,7 +189,7 @@ export default [
 	},
 
 	{
-		q: 'Is or will the component be embedded inside a molecule component somewhere?',
+		q: 'Is or will the component ever be embedded inside a molecule component?',
 		a: {
 			yes: {
 				o: 0,
@@ -210,7 +210,7 @@ export default [
 	},
 
 	{
-		q: 'Is or will the component be embedded inside an organism component somewhere?',
+		q: 'Is or will the component ever be embedded inside an organism component?',
 		a: {
 			yes: {
 				o: 0,
