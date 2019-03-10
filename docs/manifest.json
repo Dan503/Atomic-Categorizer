@@ -1,0 +1,19 @@
+{
+  "name": "Atomic Categorizer",
+  "short_name": "Atomic Categorizer",
+  "icons": [
+      {
+          "src": "/img/icons/android-chrome-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+      },
+      {
+          "src": "/img/icons/android-chrome-512x512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+      }
+  ],
+  "theme_color": "#f6f5de",
+  "background_color": "#f6f5de",
+  "display": "standalone"
+}
