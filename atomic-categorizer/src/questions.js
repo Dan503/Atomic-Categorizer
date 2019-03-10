@@ -83,7 +83,7 @@ export default [
 	},
 
 	{
-		q: 'Does the element contain a list of repeating components?',
+		q: 'Does the component contain a list of repeating components?',
 		a: {
 			yes: {
 				o: 4,
