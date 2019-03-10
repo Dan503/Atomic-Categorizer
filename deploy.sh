@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+cd atomic-categorizer
+
 # abort on errors
 set -e
 
