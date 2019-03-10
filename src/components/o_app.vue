@@ -6,12 +6,15 @@
         sup  [Beta]
     main.o-app__main
       o_quiz(@update="updateScores")
-    footer.o-app__footer
       o_recommendation(:scores="finalScores")
+    footer.o-app__footer
+      a_infoBlock
+        p Fork this project on #[a(href='https://github.com/Dan503/Atomic-Categorizer') GitHub]
 </template>
 
 <script>
 import o_quiz from "./o_quiz";
+import a_infoBlock from "./a_infoBlock";
 import o_recommendation from "./o_recommendation.vue";
 
 export default {
@@ -32,7 +35,8 @@ export default {
   },
   components: {
     o_quiz,
-    o_recommendation
+    o_recommendation,
+    a_infoBlock
   },
   methods: {
     updateScores (scoreData) {
@@ -75,6 +79,7 @@ function merge_scores (scores) {
   flex-direction: column;
   align-items: stretch;
   justify-content: space-between;
+  padding-bottom: 10px;
 
   &__title {
     sup {
@@ -88,12 +93,15 @@ function merge_scores (scores) {
 
   &__footer {
     bottom: 0;
-    width: 100%;
+  }
+
+  .o-recommendation {
     max-width: 100rem;
-    margin: 0 auto;
+    margin: 0 auto 20px;
 
     @media (min-height: 500px) {
       position: sticky;
+      bottom: 20px;
     }
   }
 }

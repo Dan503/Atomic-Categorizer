@@ -2,7 +2,8 @@
   article.o-quiz
     header.o-quiz__head
       h2.o-quiz__heading.-visuallyHidden Atomic quiz
-      p.o-quiz__intro Answer the following quiz to figure out what <a href="http://bradfrost.com/blog/post/atomic-web-design/">Atomic Design</a> category a particular component should be categorized into.
+      a_infoBlock
+        p Answer the following quiz to figure out what <a href="http://bradfrost.com/blog/post/atomic-web-design/">Atomic Design</a> category a particular component should be categorized into.
     form
       ol.o-quiz__list
         li.o-quiz__item(v-for="(question, index) in questions")
@@ -12,10 +13,11 @@
 <script>
 import questions from '../questions.js';
 import m_question from './m_question.vue';
+import a_infoBlock from './a_infoBlock.vue';
 
 export default {
   data: ()=> ({questions}),
-  components: { m_question },
+  components: { m_question, a_infoBlock },
   props: ['scores'],
   methods: {
     updateScores (scoreData) {
@@ -34,11 +36,6 @@ export default {
       list-style: none;
       display: grid;
       grid-gap: 5rem;
-    }
-
-    &__intro {
-      color: var(--dim-text-color);
-      font-style: italic;
     }
   }
 </style>
