@@ -54,12 +54,22 @@ export default [
 				m: 1,
 				a: 0
 			},
+			li: {
+				o: 0,
+				m: 4,
+				a: 1,
+			},
 			a: {
 				o: 0,
 				m: 2,
-				a: 1,
+				a: 3,
 			},
 			button: {
+				o: 0,
+				m: 1,
+				a: 4
+			},
+			"div wrapped around a single dt and dd element": {
 				o: 0,
 				m: 1,
 				a: 4
@@ -148,6 +158,11 @@ export default [
 				o: 0,
 				m: 0,
 				a: 0,
+			},
+			"not sure": {
+				o: 0,
+				m: 0,
+				a: 0
 			}
 		}
 	},
@@ -156,14 +171,61 @@ export default [
 		q: 'Are there any molecule components embedded into the component?',
 		a: {
 			yes: {
-				o: 5,
-				m: 0,
+				o: 4,
+				m: 1,
 				a: 0
 			},
 			no: {
 				o: 0,
 				m: 0,
 				a: 0,
+			},
+			"not sure": {
+				o: 0,
+				m: 0,
+				a: 0
+			}
+		}
+	},
+
+	{
+		q: 'Is or will the component be embedded inside a molecule component somewhere?',
+		a: {
+			yes: {
+				o: 0,
+				m: 1,
+				a: 4
+			},
+			no: {
+				o: 3,
+				m: 2,
+				a: 0,
+			},
+			"not sure": {
+				o: 0,
+				m: 0,
+				a: 0
+			}
+		}
+	},
+
+	{
+		q: 'Is or will the component be embedded inside an organism component somewhere?',
+		a: {
+			yes: {
+				o: 0,
+				m: 3,
+				a: 2
+			},
+			no: {
+				o: 3,
+				m: 1,
+				a: 1,
+			},
+			"not sure": {
+				o: 0,
+				m: 0,
+				a: 0
 			}
 		}
 	}
