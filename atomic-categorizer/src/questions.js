@@ -3,8 +3,8 @@ export default [
 		q: 'Will the component only ever be used once per page?',
 		a: {
 			yes: {
-				o: 3,
-				m: 2,
+				o: 4,
+				m: 1,
 				a: 0
 			},
 			no: {
