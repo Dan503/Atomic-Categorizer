@@ -62,6 +62,8 @@ export default {
     // font-family: var(--font-secondary);
     font-weight: bold;
     font-size: 1.2em;
+    width: 100%;
+    text-align: center;
   }
 
   &__answers {
