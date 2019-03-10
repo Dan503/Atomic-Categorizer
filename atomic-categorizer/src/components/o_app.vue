@@ -1,7 +1,9 @@
 <template lang="pug">
   .o-app#app
     header.o-app__header
-      h1.o-app__title Atomic Categorizer
+      h1.o-app__title
+        | Atomic Categorizer
+        sup  [Beta]
     main.o-app__main
       o_quiz(@update="updateScores")
     footer.o-app__footer
@@ -73,6 +75,12 @@ function merge_scores (scores) {
   flex-direction: column;
   align-items: stretch;
   justify-content: space-between;
+
+  &__title {
+    sup {
+      font-size: 0.6em;
+    }
+  }
 
   &__main, &__footer {
     margin: 0 20px;
