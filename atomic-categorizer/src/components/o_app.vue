@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import o_quiz from "./components/o_quiz";
-import o_recommendation from "./components/o_recommendation.vue";
+import o_quiz from "./o_quiz";
+import o_recommendation from "./o_recommendation.vue";
 
 export default {
   name: "app",
@@ -64,7 +64,7 @@ function merge_scores (scores) {
 
 </script>
 
-<style lang="scss" src="./main.scss"></style>
+<style lang="scss" src="../main.scss"></style>
 
 <style lang="scss">
 .o-app {
