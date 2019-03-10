@@ -4,11 +4,12 @@
       legend.m-question__legend {{question.q}}
       ul.m-question__answers
         li.m-question__answer(v-for="(points, label) in question.a")
-          a_radio( :label="label", :name="question.q", :points="points", :index="index" @update="updateScores")
-      dl.m-question__scores(v-if="scores")
-        a_score(name="Atom", :value="`+${scores.a}`")
-        a_score(name="Molecule", :value="`+${scores.m}`")
-        a_score(name="Organism", :value="`+${scores.o}`")
+          a_radio(:describedby="descID" :label="label", :name="question.q", :points="points", :index="index" @update="updateScores")
+      div(:id="descID")
+        dl.m-question__scores(v-if="scores")
+          a_score(name="Atom", :value="`+${scores.a}`")
+          a_score(name="Molecule", :value="`+${scores.m}`")
+          a_score(name="Organism", :value="`+${scores.o}`")
 </template>
 
 <script>
@@ -23,6 +24,11 @@ export default {
   },
   components: {a_radio, a_score},
   props: ['question', 'index'],
+  computed: {
+    descID(){
+      return this.question.q.replace(/\W/g,'');
+    }
+  },
   methods: {
     updateScores (scoreData) {
       this.$emit('update', scoreData)

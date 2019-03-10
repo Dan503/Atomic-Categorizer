@@ -1,6 +1,6 @@
 <template lang="pug">
   label.a-radio
-    input.a-radio__input.-visuallyHidden(type='radio', :value="label", @change="update" v-model="chosenValue", :name="name")
+    input.a-radio__input.-visuallyHidden(type='radio', :value="label", @change="update" v-model="chosenValue", :name="name", :aria-describedby="describedby")
     span.a-radio__label {{label}}
 </template>
 
@@ -11,7 +11,7 @@ export default {
       chosenValue: '',
     }
   },
-  props: ['name', 'label', 'points', 'index'],
+  props: ['name', 'label', 'points', 'index', 'describedby'],
   methods: {
     update() {
       this.$emit('update', this.selectionData());
