@@ -1,10 +1,13 @@
 <template lang="pug">
   .a-infoBlock
-    slot
+    a_restrictor.a-infoBlock__restrictor
+      slot
 </template>
 
 <script>
+import a_restrictor from './a_restrictor';
 export default {
+  components: { a_restrictor },
 };
 </script>
 

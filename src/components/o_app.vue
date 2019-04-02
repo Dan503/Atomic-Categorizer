@@ -93,10 +93,6 @@ function merge_scores (scores) {
     }
   }
 
-  &__main, &__footer {
-    margin: 0 20px;
-  }
-
   &__footer {
     bottom: 0;
   }

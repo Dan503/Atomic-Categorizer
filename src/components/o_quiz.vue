@@ -1,10 +1,6 @@
 <template lang="pug">
-  article.o-quiz
-    header.o-quiz__head
-      h2.o-quiz__heading.-visuallyHidden Atomic quiz
-      a_infoBlock
-        p Answer the following quiz to figure out what <a href="http://bradfrost.com/blog/post/atomic-web-design/">Atomic Design</a> category a particular component should be categorized into.
-    form
+  form.o-quiz
+    a_restrictor.o-quiz__restrictor
       ol.o-quiz__list
         li.o-quiz__item(v-for="(question, index) in questions")
           m_question(:index="index" :question="question" :key="question.q" @update="updateScores")
@@ -13,11 +9,11 @@
 <script>
 import questions from '../questions.js';
 import m_question from './m_question.vue';
-import a_infoBlock from './a_infoBlock.vue';
+import a_restrictor from './a_restrictor.vue';
 
 export default {
   data: ()=> ({questions}),
-  components: { m_question, a_infoBlock },
+  components: { m_question, a_restrictor },
   props: ['scores'],
   methods: {
     updateScores (scoreData) {

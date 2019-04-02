@@ -1,17 +1,20 @@
 <template lang="pug">
   article.o-recommendation
-    h2.o-recommendation__title Current recommendation:
-    dl.o-recommendation__list
-      a_score(name="Atom", :value="scores.a", :selected="selected.a")
-      a_score(name="Molecule", :value="scores.m", :selected="selected.m")
-      a_score(name="Organism", :value="scores.o", :selected="selected.o")
+    a_restrictor.o-recommendation__restrictor
+      .o-recommendation__inner
+        h2.o-recommendation__title Current recommendation:
+        dl.o-recommendation__list
+          a_score(name="Atom", :value="scores.a", :selected="selected.a")
+          a_score(name="Molecule", :value="scores.m", :selected="selected.m")
+          a_score(name="Organism", :value="scores.o", :selected="selected.o")
 </template>
 
 <script>
-import a_score from "./a_score.vue";
+import a_score from './a_score.vue';
+import a_restrictor from './a_restrictor.vue';
 
 export default {
-  components: { a_score },
+  components: { a_score, a_restrictor },
   props: ['scores'],
   computed: {
     selected() {
@@ -40,24 +43,27 @@ export default {
 <style lang="scss">
 
 .o-recommendation {
-  background: var(--background-color);
-  padding: 10px 20px;
-  margin: 0 20px 20px;
-  box-shadow:
-    0 10px 0 -5px #be6700,
-    0 20px 0 -10px #66ccff,
-    0 30px 0 -16px #dedcb9;
-  border: 3px solid var(--black);
 
-  display: grid;
-  grid-gap: 1rem;
+  &__inner {
+    background: var(--background-color);
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    box-shadow:
+      0 10px 0 -5px #be6700,
+      0 20px 0 -10px #66ccff,
+      0 30px 0 -16px #dedcb9;
+    border: 3px solid var(--black);
 
-  @media (min-width: 1000px) {
-    grid-template-columns: max-content 1fr;
-  }
+    display: grid;
+    grid-gap: 1rem;
 
-  @media (min-width: 600px) {
-    grid-gap: 20px;
+    @media (min-width: 850px) {
+      grid-template-columns: max-content 1fr;
+    }
+
+    @media (min-width: 600px) {
+      grid-gap: 20px;
+    }
   }
 
   &__title {
