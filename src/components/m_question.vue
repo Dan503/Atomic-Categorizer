@@ -6,15 +6,13 @@
         li.m-question__answer(v-for="(points, label) in question.a")
           a_radio(:describedby="descID" :label="label", :name="question.q", :points="points", :index="index" @update="updateScores")
       div(:id="descID")
-        dl.m-question__scores(v-if="scores")
-          a_score(name="Atom", :value="`+${scores.a}`")
-          a_score(name="Molecule", :value="`+${scores.m}`")
-          a_score(name="Organism", :value="`+${scores.o}`")
+        m_scores.m-question__scores(v-if="scores", :scores="scores")
 </template>
 
 <script>
 import a_radio from './a_radio';
 import a_score from './a_score';
+import m_scores from './m_scores';
 
 export default {
   data(){
@@ -22,7 +20,7 @@ export default {
       scores: false,
     }
   },
-  components: {a_radio, a_score},
+  components: { a_radio, a_score, m_scores },
   props: ['question', 'index'],
   computed: {
     descID(){
@@ -31,8 +29,14 @@ export default {
   },
   methods: {
     updateScores (scoreData) {
-      this.$emit('update', scoreData)
-      this.scores = scoreData.points;
+      this.$emit('update', scoreData);
+      this.scores = apply_plus_signs(scoreData.points);
+
+      function apply_plus_signs(rawScores) {
+        let scores = {...rawScores};
+        Object.keys(scores).forEach(key => scores[key] = `+${scores[key]}`);
+        return scores;
+      }
     }
   },
 };
@@ -47,6 +51,7 @@ export default {
     @media (min-width: 600px) {
       display: flex;
       justify-content: center;
+      padding-left: 35px;
     }
 
     .a-score {
