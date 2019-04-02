@@ -12,7 +12,7 @@ self.__precacheManifest = [
     "url": "/Atomic-Categorizer/js/app.a956e14a.js"
   },
   {
-    "revision": "4af4052adfebb93e4929ba95fce4aa56",
+    "revision": "473703251af8d74d480ad96d87517dfa",
     "url": "/Atomic-Categorizer/index.html"
   },
   {

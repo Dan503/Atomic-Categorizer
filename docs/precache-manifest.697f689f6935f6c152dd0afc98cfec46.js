@@ -8,7 +8,7 @@ self.__precacheManifest = [
     "url": "/Atomic-Categorizer/js/app-legacy.a956e14a.js"
   },
   {
-    "revision": "74be4ebc5d912d3deb0105a1500e141b",
+    "revision": "c32636d05d5f8f214e02e325b64a95fb",
     "url": "/Atomic-Categorizer/index.html"
   },
   {
