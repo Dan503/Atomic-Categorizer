@@ -4,12 +4,18 @@
       h1.o-app__title
         | Atomic Categorizer
         sup  [Beta]
+
+      a_infoBlock
+        p This is an unofficial tool to help you categorize <a href="http://bradfrost.com/blog/post/atomic-web-design/">Atomic Design</a> components.
+        p Answer the following quiz to help you figure out what category a particular component belongs to.
+
     main.o-app__main
       o_quiz(@update="updateScores")
       o_recommendation(:scores="finalScores")
     footer.o-app__footer
       a_infoBlock
         p Fork this project on #[a(href='https://github.com/Dan503/Atomic-Categorizer') GitHub]
+        p This tool is intended to be used as a guide. The scoring system may not be perfect.
 </template>
 
 <script>
