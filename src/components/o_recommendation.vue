@@ -3,16 +3,18 @@
     a_restrictor.o-recommendation__restrictor
       .o-recommendation__inner
         h2.o-recommendation__title Current recommendation:
-        m_scores.o-recommendation__list(:scores="scores", :highlight="true")
+        m_scores.o-recommendation__scores(:scores="scores", :highlight="true")
+        m_graph(:scores="scores" class="o-recommendation__graph")
 </template>
 
 <script>
 import a_score from './a_score.vue';
 import a_restrictor from './a_restrictor.vue';
 import m_scores from './m_scores.vue';
+import m_graph from './m_graph.vue';
 
 export default {
-  components: { a_score, a_restrictor, m_scores },
+  components: { a_score, a_restrictor, m_scores, m_graph },
   props: ['scores'],
 };
 
@@ -34,22 +36,44 @@ export default {
     border: 3px solid var(--black);
 
     display: grid;
-    grid-gap: 1rem;
+    grid-gap: 20px;
 
-    @media (min-width: 850px) {
-      grid-template-columns: max-content 1fr;
+    @media (min-width: 851px) {
+      grid-template:
+        "title      scores graph" /
+        max-content 1fr    auto;
     }
 
-    @media (min-width: 600px) {
-      grid-gap: 20px;
+    @media (max-width: 850px) {
+      grid-template:
+        "title  graph"
+        "scores graph" /
+        1fr     auto;
+    }
+
+    @media (max-width: 600px) {
+      grid-gap: 10px;
+      grid-template:
+        "title title"
+        "graph scores" /
+        auto   1fr;
     }
   }
 
   &__title {
+    grid-area: title;
     margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  &__graph {
+    grid-area: graph;
+  }
+
+  &__scores {
+    grid-area: scores;
   }
 }
 
