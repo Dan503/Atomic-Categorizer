@@ -8,11 +8,11 @@ self.__precacheManifest = [
     "url": "/Atomic-Categorizer/js/chunk-vendors.671c7262.js"
   },
   {
-    "revision": "e8f42f2d3e1c2cb6f1ba",
-    "url": "/Atomic-Categorizer/js/app.a956e14a.js"
+    "revision": "9c6296c6063fea94e730",
+    "url": "/Atomic-Categorizer/js/app.04c8075d.js"
   },
   {
-    "revision": "473703251af8d74d480ad96d87517dfa",
+    "revision": "b1a9641e5201d7e62a6d5c91f5e23c0d",
     "url": "/Atomic-Categorizer/index.html"
   },
   {
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/Atomic-Categorizer/img/social-media-banner.png"
   },
   {
-    "revision": "e8f42f2d3e1c2cb6f1ba",
-    "url": "/Atomic-Categorizer/css/app.eb106d0e.css"
+    "revision": "9c6296c6063fea94e730",
+    "url": "/Atomic-Categorizer/css/app.af63d404.css"
   }
 ];
