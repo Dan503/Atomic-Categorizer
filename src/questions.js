@@ -159,12 +159,7 @@ export default [
 				m: 1,
 				a: 0,
 			},
-			"not sure": {
-				o: 0,
-				m: 0,
-				a: 0
 			}
-		}
 	},
 
 	{
@@ -180,12 +175,7 @@ export default [
 				m: 2,
 				a: 3,
 			},
-			"not sure": {
-				o: 0,
-				m: 0,
-				a: 0
 			}
-		}
 	},
 
 	{
@@ -201,11 +191,6 @@ export default [
 				m: 2,
 				a: 0,
 			},
-			"not sure": {
-				o: 0,
-				m: 0,
-				a: 0
-			}
 		}
 	},
 
@@ -222,11 +207,6 @@ export default [
 				m: 1,
 				a: 1,
 			},
-			"not sure": {
-				o: 0,
-				m: 0,
-				a: 0
-			}
 		}
 	}
 ]
