@@ -11,27 +11,20 @@
 </template>
 
 <script>
+import get_highest from '../helpers/get_highest.js';
+
 export default {
   props: ['scores'],
   computed: {
     highest() {
-      const { a, m, o } = this.scores;
-      const highestValue = Math.max(a, m, o);
-      const highestKey = Object.keys(this.scores).reduce((a, b) => this.scores[a] > this.scores[b] ? a : b);
-      const highScores = [a,m,o].filter(value => value === highestValue);
-
-      return {
-        key: highestKey,
-        value: highestValue,
-        isDraw: highScores.length > 1,
-      }
+      return get_highest(this.scores);
     },
     isHighest(){
-      const highest = key => this.highest.key === key && !this.highest.isDraw;
+      const isHighest = key => this.highest.key === key && !this.highest.isDraw;
       return {
-        a: highest('a'),
-        m: highest('m'),
-        o: highest('o'),
+        a: isHighest('a'),
+        m: isHighest('m'),
+        o: isHighest('o'),
       }
     },
     percentage() {

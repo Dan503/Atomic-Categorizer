@@ -8,6 +8,7 @@
 
 <script>
 import a_score from './a_score.vue';
+import get_highest from '../helpers/get_highest.js';
 
 export default {
 	components: { a_score },
@@ -23,21 +24,13 @@ export default {
 	},
 	computed: {
 		selected() {
-			const defaultObj = {a:false, m:false, o:false};
-			if (!this.highlight) return defaultObj;
+			let returnObj = {a:false, m:false, o:false};
+			if (!this.highlight) return returnObj;
 
-			const keys = Object.keys(this.scores);
-			const values = Object.values(this.scores);
-			const highestScore = Math.max(...values);
-			const highScores = values.filter((score) => score === highestScore);
+			const highest = get_highest(this.scores);
 
-			const highScoreIndex = values.indexOf(highestScore);
-			const highScoreKey = keys[highScoreIndex];
-
-			let returnObj = {...defaultObj};
-
-			if (highScores.length === 1) {
-				returnObj[highScoreKey] = true;
+			if (!highest.isDraw) {
+				returnObj[highest.key] = true;
 			}
 
 			return returnObj;
