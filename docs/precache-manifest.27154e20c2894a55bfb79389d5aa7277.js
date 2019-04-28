@@ -4,15 +4,15 @@ self.__precacheManifest = [
     "url": "/Atomic-Categorizer/js/chunk-vendors-legacy.671c7262.js"
   },
   {
-    "revision": "0cf6205218920d31a361",
-    "url": "/Atomic-Categorizer/js/app-legacy.8bda764d.js"
+    "revision": "67ab4a51f9dbec1f7d23",
+    "url": "/Atomic-Categorizer/js/app-legacy.87e4a9bb.js"
   },
   {
-    "revision": "e06fcffceef7ec7e8a4492f7ac56404b",
+    "revision": "e2a097bf239ba1899bb6129084c5b4e0",
     "url": "/Atomic-Categorizer/index.html"
   },
   {
-    "revision": "0cf6205218920d31a361",
+    "revision": "67ab4a51f9dbec1f7d23",
     "url": "/Atomic-Categorizer/css/app.af63d404.css"
   }
 ];
