@@ -1,7 +1,7 @@
 <template lang="pug">
-  article.m-question
+  article.m-question(:aria-labelledby="legendID")
     fieldset.m-question__fieldset
-      legend.m-question__legend {{question.q}}
+      legend.m-question__legend(:id="legendID") {{question.q}}
       ul.m-question__answers
         li.m-question__answer(v-for="(points, label) in question.a")
           a_radio(:describedby="descID" :label="label", :name="question.q", :points="points", :index="index" @update="updateScores")
@@ -23,8 +23,14 @@ export default {
   components: { a_radio, a_score, m_scores },
   props: ['question', 'index'],
   computed: {
-    descID(){
+    baseID(){
       return this.question.q.replace(/\W/g,'');
+    },
+    descID(){
+      return `description-${this.baseID}`;
+    },
+    legendID(){
+      return `legend-${this.baseID}`;
     }
   },
   methods: {
