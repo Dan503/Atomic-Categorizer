@@ -18,6 +18,8 @@
       a_infoBlock
         p Fork this project on #[a(href='https://github.com/Dan503/Atomic-Categorizer') GitHub]
         p This tool is intended to be used as a guide. The scoring system may not be perfect.
+      .o-app__status.-visuallyHidden(role="status")
+        p {{status}}
 </template>
 
 <script>
@@ -41,7 +43,8 @@ export default {
         a: 0,
         m: 0,
         o: 0,
-      }
+      },
+      status: '',
     }
   },
   components: {
@@ -55,9 +58,11 @@ export default {
       const splitScores = update_score_arrays(this.scores, scoreData);
       const mergedScores = merge_scores(splitScores);
       this.finalScores = mergedScores;
+      this.status = '';
     },
     reset() {
       events.$emit('reset');
+      this.status = 'The quiz has been reset';
     }
   },
 };
