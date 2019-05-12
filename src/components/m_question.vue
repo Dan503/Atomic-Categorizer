@@ -36,14 +36,14 @@ export default {
   methods: {
     updateScores (scoreData) {
       this.$emit('update', scoreData);
-      this.scores = apply_plus_signs(scoreData.points);
+      this.scores = scoreData.isReset ? false : apply_plus_signs(scoreData.points);
 
       function apply_plus_signs(rawScores) {
         let scores = {...rawScores};
         Object.keys(scores).forEach(key => scores[key] = `+${scores[key]}`);
         return scores;
       }
-    }
+    },
   },
 };
 </script>

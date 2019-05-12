@@ -1,11 +1,18 @@
 <template lang="pug">
   label.a-radio
-    input.a-radio__input.-visuallyHidden(type='radio', :value="label", @change="update" v-model="chosenValue", :name="name", :aria-describedby="describedby")
-    span.a-radio__label {{label}}
+    input.a-radio__input.-visuallyHidden(type='radio', :value="label", @change="update" @reset="reset" v-model="chosenValue", :name="name", :aria-describedby="describedby")
+    span.a-radio__label.a-btn {{label}}
 </template>
 
 <script>
+import a_btn from './a_btn';
+import events from '../helpers/global_events.js'
+
 export default {
+  components: { a_btn },
+  created(){
+    events.$on('reset', ()=> this.reset());
+  },
   data(){
     return {
       chosenValue: '',
@@ -22,7 +29,18 @@ export default {
         qIndex: this.index,
         question: this.name,
         selection: this.chosenValue,
+        isReset: false,
       }
+    },
+    reset() {
+      this.chosenValue = '';
+      this.$emit('update', Object.assign(
+        this.selectionData(),
+        {
+          points: {a: 0, m:0, o: 0},
+          isReset: true
+        }
+      ));
     }
   },
 };
@@ -32,34 +50,13 @@ export default {
 <style lang="scss">
   .a-radio {
     &__label {
-      --bg: var(--orange-strong);
-      --color: var(--background-color);
-      --border: transparent;
-
-      background: var(--bg);
-      color: var(--color);
-      padding: 5px 20px;
-      display: block;
-      font-family: var(--font-secondary);
-      font-size: 1.5em;
-      transition: 0.3s;
-      border: 3px solid var(--border);
-      cursor: pointer;
-
       input:checked + & {
-        --bg: var(--black);
-        --color: var(--background-color);
-      }
-
-      &:hover {
-        --bg: #fff;
-        --color: var(--black);
-        --border: var(--orange-strong);
+        --btn__bg: var(--black);
+        --btn__color: var(--background-color);
       }
     }
-
     input:focus + &__label {
-        --border: #fff;
+        --btn__border: #fff;
         box-shadow: 0 0 0 1px #000;
     }
   }

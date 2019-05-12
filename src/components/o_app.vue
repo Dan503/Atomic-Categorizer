@@ -12,6 +12,8 @@
     main.o-app__main
       o_quiz(@update="updateScores")
       o_recommendation(:scores="finalScores")
+      .o-app__resetWrap
+        a_btn(@click="reset") Reset
     footer.o-app__footer
       a_infoBlock
         p Fork this project on #[a(href='https://github.com/Dan503/Atomic-Categorizer') GitHub]
@@ -22,6 +24,9 @@
 import o_quiz from "./o_quiz";
 import a_infoBlock from "./a_infoBlock";
 import o_recommendation from "./o_recommendation.vue";
+import a_btn from './a_btn';
+
+import events from '../helpers/global_events.js';
 
 export default {
   name: "app",
@@ -42,13 +47,17 @@ export default {
   components: {
     o_quiz,
     o_recommendation,
-    a_infoBlock
+    a_infoBlock,
+    a_btn,
   },
   methods: {
     updateScores (scoreData) {
       const splitScores = update_score_arrays(this.scores, scoreData);
       const mergedScores = merge_scores(splitScores);
       this.finalScores = mergedScores;
+    },
+    reset() {
+      events.$emit('reset');
     }
   },
 };
@@ -91,6 +100,11 @@ function merge_scores (scores) {
     sup {
       font-size: 0.6em;
     }
+  }
+
+  &__resetWrap {
+    margin: 4rem auto 2rem;
+    text-align: center;
   }
 
   &__footer {
