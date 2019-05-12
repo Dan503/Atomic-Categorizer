@@ -111,6 +111,13 @@ function merge_scores (scores) {
   &__resetWrap {
     margin: 4rem auto 2rem;
     text-align: center;
+
+    @media (min-width: 510px){
+      position: fixed;
+      top: 0;
+      right: 0;
+      margin: 0;
+    }
   }
 
   &__footer {
