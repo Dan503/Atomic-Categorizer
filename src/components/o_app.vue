@@ -63,6 +63,7 @@ export default {
     reset() {
       events.$emit('reset');
       this.status = 'The quiz has been reset';
+      if (window.gtag) window.gtag('event', 'reset');
     }
   },
 };
