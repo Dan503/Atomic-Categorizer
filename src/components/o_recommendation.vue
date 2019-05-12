@@ -1,5 +1,5 @@
 <template lang="pug">
-  article.o-recommendation
+  article.o-recommendation(:class="{'-visible': isVisible }")
     a_restrictor.o-recommendation__restrictor
       .o-recommendation__inner
         h2.o-recommendation__title Current recommendation:
@@ -16,6 +16,13 @@ import m_graph from './m_graph.vue';
 export default {
   components: { a_score, a_restrictor, m_scores, m_graph },
   props: ['scores'],
+  computed: {
+    isVisible() {
+      const scoreValues = Object.values(this.scores);
+      const nonZeroValues = scoreValues.filter(val => val !== 0);
+      return nonZeroValues.length > 0;
+    }
+  }
 };
 
 </script>
@@ -24,6 +31,17 @@ export default {
 <style lang="scss">
 
 .o-recommendation {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 1s, visibility 0s 1s;
+
+  &.-visible {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transition: opacity 1s, visibility 0s;
+  }
 
   &__inner {
     background: var(--background-color);
