@@ -13,12 +13,15 @@ export default {
   created() {
     events.$on("reset", () => this.reset());
   },
+  mounted() {
+    if (this.selections[this.index]) this.update();
+  },
   data() {
     return {
-      chosenValue: ""
+      chosenValue: this.get_url_chosen_value()
     };
   },
-  props: ["name", "label", "points", "index", "describedby"],
+  props: ["name", "label", "points", "index", "describedby", "selections"],
   methods: {
     update() {
       this.$emit("update", this.selectionData());
@@ -41,6 +44,10 @@ export default {
           isReset: true
         })
       );
+    },
+    get_url_chosen_value() {
+      const chosenValue = this.selections[this.index];
+      return chosenValue ? chosenValue : "";
     }
   }
 };

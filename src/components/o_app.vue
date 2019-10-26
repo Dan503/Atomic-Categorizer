@@ -10,7 +10,7 @@
         p Answer the following quiz to help you figure out what category a particular component belongs to.
 
     main.o-app__main
-      o_quiz
+      o_quiz(:selections="selections")
       o_recommendation(:scores="finalScores")
       .o-app__resetWrap
         a_btn(@click="reset") Reset

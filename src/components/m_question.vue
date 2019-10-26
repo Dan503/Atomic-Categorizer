@@ -4,7 +4,7 @@
       legend.m-question__legend(:id="legendID") {{question.q}}
       ul.m-question__answers
         li.m-question__answer(v-for="(points, label) in question.a")
-          a_radio(:describedby="descID" :label="label", :name="question.q", :points="points", :index="index" @update="updateScores")
+          a_radio(:describedby="descID" :label="label", :name="question.q", :points="points", :index="index" @update="updateScores" :selections="selections")
       div(:id="descID")
         m_scores.m-question__scores(v-if="scores", :scores="scores")
 </template>
@@ -22,7 +22,7 @@ export default {
     };
   },
   components: { a_radio, a_score, m_scores },
-  props: ["question", "index"],
+  props: ["question", "index", "selections"],
   computed: {
     baseID() {
       return this.question.q.replace(/\W/g, "");
