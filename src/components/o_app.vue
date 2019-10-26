@@ -45,7 +45,7 @@ export default {
         o: 0
       },
       status: "",
-      selections: {}
+      selections: get_url_selections() || {}
     };
   },
   beforeCreate() {
@@ -86,6 +86,13 @@ export default {
 function generate_url(selections) {
   const json = JSON.stringify(selections);
   return `${location.origin}?selections=${encodeURIComponent(json)}`;
+}
+
+function get_url_selections() {
+  if (!location.search.includes("?selections=")) return null;
+
+  const encodedJsonString = location.search.replace("?selections=", "");
+  return JSON.parse(decodeURIComponent(encodedJsonString));
 }
 
 function update_score_arrays(scoreArrays, newScoreData) {
