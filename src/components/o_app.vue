@@ -85,7 +85,8 @@ export default {
 
 function generate_url(selections) {
   const json = JSON.stringify(selections);
-  return `${location.origin}?selections=${encodeURIComponent(json)}`;
+  const url = location.origin + location.pathname;
+  return `${url}?selections=${encodeURIComponent(json)}`;
 }
 
 function get_url_selections() {
