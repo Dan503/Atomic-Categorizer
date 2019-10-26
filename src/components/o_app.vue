@@ -75,7 +75,7 @@ export default {
 
     reset() {
       this.selections = {};
-      this.url = location.origin;
+      this.url = location.origin + location.pathname;
       this.status = "The quiz has been reset";
       events.$emit("reset");
       if (window.gtag) window.gtag("event", "reset");
