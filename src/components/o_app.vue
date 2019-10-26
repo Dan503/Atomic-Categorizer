@@ -44,11 +44,15 @@ export default {
         m: 0,
         o: 0
       },
-      status: ""
+      status: "",
+      selections: {}
     };
   },
   beforeCreate() {
     events.$on("update", scoreData => this.updateScores(scoreData));
+  },
+  updated() {
+    history.pushState(null, "", this.url);
   },
   components: {
     o_quiz,
@@ -62,14 +66,27 @@ export default {
       const mergedScores = merge_scores(splitScores);
       this.finalScores = mergedScores;
       this.status = "";
+
+      if (!scoreData.isReset) {
+        this.selections[scoreData.qIndex] = scoreData.selection;
+        this.url = generate_url(this.selections);
+      }
     },
+
     reset() {
-      events.$emit("reset");
+      this.selections = {};
+      this.url = location.origin;
       this.status = "The quiz has been reset";
+      events.$emit("reset");
       if (window.gtag) window.gtag("event", "reset");
     }
   }
 };
+
+function generate_url(selections) {
+  const json = JSON.stringify(selections);
+  return `${location.origin}?selections=${encodeURIComponent(json)}`;
+}
 
 function update_score_arrays(scoreArrays, newScoreData) {
   for (const key in scoreArrays) {
