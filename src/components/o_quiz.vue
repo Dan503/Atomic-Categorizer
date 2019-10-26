@@ -3,7 +3,7 @@
     a_restrictor.o-quiz__restrictor
       ol.o-quiz__list
         li.o-quiz__item(v-for="(question, index) in questions")
-          m_question(:index="index" :question="question" :key="question.q" @update="updateScores")
+          m_question(:index="index" :question="question" :key="question.q")
 </template>
 
 <script>
@@ -14,12 +14,7 @@ import a_restrictor from "./a_restrictor.vue";
 export default {
   data: () => ({ questions }),
   components: { m_question, a_restrictor },
-  props: ["scores"],
-  methods: {
-    updateScores(scoreData) {
-      this.$emit("update", scoreData);
-    }
-  }
+  props: ["scores"]
 };
 </script>
 

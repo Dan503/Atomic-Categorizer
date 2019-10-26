@@ -10,7 +10,7 @@
         p Answer the following quiz to help you figure out what category a particular component belongs to.
 
     main.o-app__main
-      o_quiz(@update="updateScores")
+      o_quiz
       o_recommendation(:scores="finalScores")
       .o-app__resetWrap
         a_btn(@click="reset") Reset
@@ -46,6 +46,9 @@ export default {
       },
       status: ""
     };
+  },
+  beforeCreate() {
+    events.$on("update", scoreData => this.updateScores(scoreData));
   },
   components: {
     o_quiz,

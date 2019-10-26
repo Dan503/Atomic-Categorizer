@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import events from "../helpers/global_events";
 import a_radio from "./a_radio";
 import a_score from "./a_score";
 import m_scores from "./m_scores";
@@ -35,7 +36,7 @@ export default {
   },
   methods: {
     updateScores(scoreData) {
-      this.$emit("update", scoreData);
+      events.$emit("update", scoreData);
       this.scores = scoreData.isReset
         ? false
         : apply_plus_signs(scoreData.points);
