@@ -5,23 +5,23 @@
 </template>
 
 <script>
-import a_btn from './a_btn';
-import events from '../helpers/global_events.js'
+import a_btn from "./a_btn";
+import events from "../helpers/global_events.js";
 
 export default {
   components: { a_btn },
-  created(){
-    events.$on('reset', ()=> this.reset());
+  created() {
+    events.$on("reset", () => this.reset());
   },
-  data(){
+  data() {
     return {
-      chosenValue: '',
-    }
+      chosenValue: ""
+    };
   },
-  props: ['name', 'label', 'points', 'index', 'describedby'],
+  props: ["name", "label", "points", "index", "describedby"],
   methods: {
     update() {
-      this.$emit('update', this.selectionData());
+      this.$emit("update", this.selectionData());
     },
     selectionData() {
       return {
@@ -29,35 +29,35 @@ export default {
         qIndex: this.index,
         question: this.name,
         selection: this.chosenValue,
-        isReset: false,
-      }
+        isReset: false
+      };
     },
     reset() {
-      this.chosenValue = '';
-      this.$emit('update', Object.assign(
-        this.selectionData(),
-        {
-          points: {a: 0, m:0, o: 0},
+      this.chosenValue = "";
+      this.$emit(
+        "update",
+        Object.assign(this.selectionData(), {
+          points: { a: 0, m: 0, o: 0 },
           isReset: true
-        }
-      ));
+        })
+      );
     }
-  },
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-  .a-radio {
-    &__label {
-      input:checked + & {
-        --btn__bg: var(--black);
-        --btn__color: var(--background-color);
-      }
-    }
-    input:focus + &__label {
-        --btn__border: #fff;
-        box-shadow: 0 0 0 1px #000;
+.a-radio {
+  &__label {
+    input:checked + & {
+      --btn__bg: var(--black);
+      --btn__color: var(--background-color);
     }
   }
+  input:focus + &__label {
+    --btn__border: #fff;
+    box-shadow: 0 0 0 1px #000;
+  }
+}
 </style>

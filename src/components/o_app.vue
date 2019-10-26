@@ -26,46 +26,46 @@
 import o_quiz from "./o_quiz";
 import a_infoBlock from "./a_infoBlock";
 import o_recommendation from "./o_recommendation.vue";
-import a_btn from './a_btn';
+import a_btn from "./a_btn";
 
-import events from '../helpers/global_events.js';
+import events from "../helpers/global_events.js";
 
 export default {
   name: "app",
-  data(){
+  data() {
     return {
       scores: {
         a: [],
         m: [],
-        o: [],
+        o: []
       },
       finalScores: {
         a: 0,
         m: 0,
-        o: 0,
+        o: 0
       },
-      status: '',
-    }
+      status: ""
+    };
   },
   components: {
     o_quiz,
     o_recommendation,
     a_infoBlock,
-    a_btn,
+    a_btn
   },
   methods: {
-    updateScores (scoreData) {
+    updateScores(scoreData) {
       const splitScores = update_score_arrays(this.scores, scoreData);
       const mergedScores = merge_scores(splitScores);
       this.finalScores = mergedScores;
-      this.status = '';
+      this.status = "";
     },
     reset() {
-      events.$emit('reset');
-      this.status = 'The quiz has been reset';
-      if (window.gtag) window.gtag('event', 'reset');
+      events.$emit("reset");
+      this.status = "The quiz has been reset";
+      if (window.gtag) window.gtag("event", "reset");
     }
-  },
+  }
 };
 
 function update_score_arrays(scoreArrays, newScoreData) {
@@ -77,18 +77,20 @@ function update_score_arrays(scoreArrays, newScoreData) {
   return scoreArrays;
 }
 
-function merge_scores (scores) {
+function merge_scores(scores) {
   let finalScores = {};
   for (const key in scores) {
     if (scores.hasOwnProperty(key)) {
       const categoryScores = scores[key];
-      const combinedScore = categoryScores.reduce((score, sum) => sum + score, 0);
+      const combinedScore = categoryScores.reduce(
+        (score, sum) => sum + score,
+        0
+      );
       finalScores[key] = combinedScore;
     }
   }
   return finalScores;
 }
-
 </script>
 
 <style lang="scss" src="../main.scss"></style>
@@ -112,7 +114,7 @@ function merge_scores (scores) {
     margin: 4rem auto 2rem;
     text-align: center;
 
-    @media (min-width: 510px){
+    @media (min-width: 510px) {
       position: fixed;
       top: 0;
       right: 0;

@@ -10,49 +10,49 @@
 </template>
 
 <script>
-import a_radio from './a_radio';
-import a_score from './a_score';
-import m_scores from './m_scores';
+import a_radio from "./a_radio";
+import a_score from "./a_score";
+import m_scores from "./m_scores";
 
 export default {
-  data(){
+  data() {
     return {
-      scores: false,
-    }
+      scores: false
+    };
   },
   components: { a_radio, a_score, m_scores },
-  props: ['question', 'index'],
+  props: ["question", "index"],
   computed: {
-    baseID(){
-      return this.question.q.replace(/\W/g,'');
+    baseID() {
+      return this.question.q.replace(/\W/g, "");
     },
-    descID(){
+    descID() {
       return `description-${this.baseID}`;
     },
-    legendID(){
+    legendID() {
       return `legend-${this.baseID}`;
     }
   },
   methods: {
-    updateScores (scoreData) {
-      this.$emit('update', scoreData);
-      this.scores = scoreData.isReset ? false : apply_plus_signs(scoreData.points);
+    updateScores(scoreData) {
+      this.$emit("update", scoreData);
+      this.scores = scoreData.isReset
+        ? false
+        : apply_plus_signs(scoreData.points);
 
       function apply_plus_signs(rawScores) {
-        let scores = {...rawScores};
-        Object.keys(scores).forEach(key => scores[key] = `+${scores[key]}`);
+        let scores = { ...rawScores };
+        Object.keys(scores).forEach(key => (scores[key] = `+${scores[key]}`));
         return scores;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-
 .m-question {
-
   &__scores {
     @media (min-width: 600px) {
       display: flex;
@@ -92,5 +92,4 @@ export default {
     margin: 5px;
   }
 }
-
 </style>

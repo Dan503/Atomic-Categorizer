@@ -7,31 +7,31 @@
 </template>
 
 <script>
-import questions from '../questions.js';
-import m_question from './m_question.vue';
-import a_restrictor from './a_restrictor.vue';
+import questions from "../questions.js";
+import m_question from "./m_question.vue";
+import a_restrictor from "./a_restrictor.vue";
 
 export default {
-  data: ()=> ({questions}),
+  data: () => ({ questions }),
   components: { m_question, a_restrictor },
-  props: ['scores'],
+  props: ["scores"],
   methods: {
-    updateScores (scoreData) {
-      this.$emit('update', scoreData)
+    updateScores(scoreData) {
+      this.$emit("update", scoreData);
     }
-  },
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-  .o-quiz {
-    &__list {
-      margin: 5rem 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      grid-gap: 5rem;
-    }
+.o-quiz {
+  &__list {
+    margin: 5rem 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-gap: 5rem;
   }
+}
 </style>
